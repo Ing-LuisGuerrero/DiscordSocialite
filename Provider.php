@@ -13,15 +13,22 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    protected $scopes = [
-        'identify',
-        'email',
-    ];
+    protected $scopes = [];
 
     /**
      * {@inheritdoc}
      */
     protected $scopeSeparator = ' ';
+    
+    public function __construct(Request $request, $clientId, $clientSecret, $redirectUrl, $guzzle = [])
+    {
+        parent::__construct($request, $clientId, $clientSecret, $redirectUrl, $guzzle);
+        
+        $this->scopes = config('services.discord.scopes', [
+            'identify',
+            'email',
+        ]);
+    }
 
     /**
      * {@inheritdoc}
