@@ -3,6 +3,7 @@
 namespace SocialiteProviders\Discord;
 
 use GuzzleHttp\RequestOptions;
+use Illuminate\Http\Request;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 
